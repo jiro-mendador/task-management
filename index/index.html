@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Task Management</title>
+    <!-- main css -->
+    <link rel="stylesheet" href="dashboard.css" />
+    <!-- for icons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <article class="whole-page-container">
+      <header>
+        <i class="bx bx-menu bx-md" id="menu"></i>
+        <p class="page-title">Dashboard</p>
+      </header>
+
+      <nav>
+        <div class="user-fullname">
+          <i class="bx bxs-user-circle bx-lg user-icon"></i>
+          <p>User Fullname</p>
+          <i
+            class="bx bx-chevron-right bx-md"
+            style="color: #9b9da2"
+            id="close-menu"
+          ></i>
+        </div>
+        <a href="#">
+          <i class="bx bxs-dashboard bx-xs"></i>
+          <p>Dashboard</p>
+        </a>
+        <a href="../projects/">
+          <i class="bx bxs-folder bx-xs"></i>
+          <p>Projects</p>
+        </a>
+        <a href="../sign-in/" id="sign-out">
+          <i class="bx bxs-exit" style="color: #ffffff"></i>
+          <p>Sign Out</p>
+        </a>
+      </nav>
+
+      <section class="contents">
+        <section>
+          <section class="task-graph">
+            <p class="task-graph-label">Task Activity</p>
+            <canvas id="graph" width="100" height="100"></canvas>
+          </section>
+          <section class="task-completed">
+            <p class="task-completed-label">Task Completed</p>
+            <div class="task-completed">
+              <p>0</p>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section class="deadlines-container">
+            <p class="deadlines-container-label">Deadlines Today</p>
+            <div></div>
+          </section>
+
+          <section class="projects-container">
+            <p class="projects-container-label">Recent Projects</p>
+            <div>
+              <section class="view-all-project">
+                <p>View All</p>
+                <i class="bx bx-right-arrow-alt bx-md"></i>
+              </section>
+            </div>
+          </section>
+        </section>
+      </section>
+    </article>
+
+    <!-- for bar chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- global script -->
+    <script src="../globals.js"></script>
+    <!-- dashboard script -->
+    <script src="dashboard.js"></script>
+  </body>
+</html>

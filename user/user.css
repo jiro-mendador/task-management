@@ -1,0 +1,282 @@
+/*defaults*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+
+:root {
+  /* colors */
+  --darker: #464b5b;
+  --darkest--: #242b3e;
+  --dark: #9b9da2;
+
+  --light: #ffffff;
+  --lighter: #f1ebe3;
+  --lighest--: #f8f6f1;
+
+  --yellow-acc: #e2b356;
+  --violet-acc: #d7aeff;
+  --dark-violet-acc: #543ca6;
+  --orange-acc: #ee7c58;
+  --skin-acc: #f7e0d9;
+
+  /* font-sizes */
+  --title: 1.7em;
+  --sub-title: 1.4em;
+  --details: 0.9em;
+  --sub-details: 0.7em;
+
+  /* border-radius */
+  --semi: 15px;
+  --hard: 30px;
+}
+
+body {
+  /* background-color: var(--darkest--); */ /* ! test */
+  background: var(--darkest--); /* ! test */
+  background: linear-gradient(
+    90deg,
+    var(--darkest--) 0%,
+    var(--dark-violet-acc) 100%
+  ); /* ! test */
+  overflow: visible;
+}
+
+/* parent container */
+.whole-page-container {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 3em;
+  padding: 2em;
+}
+
+header,
+nav,
+nav a,
+nav div.user-fullname {
+  display: flex;
+  border-radius: var(--semi);
+  color: var(--lighest--);
+}
+
+/* header */
+header {
+  flex-flow: row wrap;
+  gap: 1em;
+  align-items: center;
+}
+
+header p.page-title {
+  font-size: var(--title);
+  font-weight: 600;
+}
+
+/* nav */
+nav a {
+  gap: 2em;
+  align-items: center;
+  text-decoration: none;
+  padding: 1em;
+}
+
+nav p {
+  font-weight: 100;
+  font-size: var(--details);
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  display: none;
+  flex-direction: column;
+  /* background-color: var(--darkest--); */ /* ! test */
+  background-color: transparent; /* ! test */
+  padding: 1em;
+  gap: 1em;
+}
+
+/* for selected content */
+nav > *:nth-child(1) {
+  /* background-color: var(--darker); */
+  background-color: rgba(0, 0, 0, 0.1); /* ! test */
+  border-radius: var(--semi);
+}
+
+nav div.user-fullname {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+div.user-fullname > p {
+  font-weight: 600;
+}
+
+div.user-fullname > i:nth-child(1) {
+  color: var(--dark);
+}
+
+/* main content */
+section.contents {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+
+  background-color: var(--lighest--);
+  border-radius: var(--semi);
+  color: var(--darkest--);
+  /* padding: 1.5em; */ /* ! test */
+  padding: 2.5em; /* ! test */
+
+  border: 2px solid var(--violet-acc); /* ! for testing */
+}
+
+/* label */
+.contents > p {
+  font-size: var(--sub-title);
+  font-weight: 600;
+  color: var(--dark-violet-acc);
+  margin: 0 0 0.5em 0;
+  text-align: center;
+}
+
+/* container */
+.contents > section {
+  display: flex; /* ! test */
+  flex-flow: column nowrap; /* ! test */
+  /* display: grid;
+  grid-template-columns: auto;
+  gap: 1em; */
+  align-items: center; /* ! test */
+}
+
+/* ! test */
+.contents > section label {
+  font-size: var(--details);
+  font-weight: 700;
+}
+
+.contents > section > div:not(:last-child) {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+  margin: 0 0 1em 0;
+
+  /* ! NOTE : this block of code fixes the bug where 
+     ! align items center shrinks the def size of an element */
+  width: 100%;
+  max-width: 500px;
+}
+/* ! test */
+
+.contents input,
+.contents > section > div:last-child {
+  border-radius: var(--semi);
+  padding: 1em;
+  /* min-width: 100%; */ /* ! test */
+  width: 100%; /* ! test */
+  max-width: 500px; /* ! test */
+}
+
+/* inputs */
+.contents input {
+  outline: none;
+  font-size: var(--details);
+  border: 2px solid var(--dark-violet-acc);
+  background-color: transparent;
+}
+
+/* button */
+.contents > section > div:last-child {
+  display: grid;
+  place-items: center;
+  background-color: var(--dark-violet-acc);
+  margin: 1em 0 0 0;
+  color: var(--light);
+}
+
+/* placeholder */
+input::placeholder {
+  color: var(--dark-violet-acc);
+  font-size: var(--details);
+}
+
+/* adjustments */
+/* tablets */
+@media screen and (min-width: 768px) {
+  .whole-page-container {
+    grid-template-columns: 300px auto;
+    grid-template-rows: auto auto;
+    gap: 3em 1em;
+    overflow: hidden;
+  }
+
+  header {
+    grid-area: 1/2/2/3;
+  }
+
+  header i:nth-child(1),
+  nav div.user-fullname > i:nth-of-type(2) {
+    display: none;
+  }
+
+  nav div.user-fullname {
+    justify-content: start;
+    gap: 1em;
+  }
+
+  nav {
+    position: relative;
+    display: flex;
+    grid-area: 2/1/3/2;
+  }
+
+  section.contents {
+    grid-area: 2/2/3/3;
+  }
+
+  .contents > section {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 1.5em 2em;
+    padding: 1em 3em;
+  }
+
+  .contents > section > div {
+    margin: 0;
+  }
+
+  .contents > p {
+    margin: 0 0 0 2em;
+  }
+}
+
+/* desktops */
+@media screen and (min-width: 1024px) {
+  .whole-page-container {
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 767px) {
+  nav {
+    background-color: var(--darkest--);
+  }
+}

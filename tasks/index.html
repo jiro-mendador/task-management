@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task - Task Management</title>
+    <link rel="stylesheet" href="task.css" />
+    <!-- for icons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <article class="whole-page-container">
+      <header>
+        <i class="bx bx-menu bx-md" id="menu"></i>
+        <p class="page-title">Tasks</p>
+      </header>
+
+      <nav>
+        <div class="user-fullname">
+          <i class="bx bxs-user-circle bx-lg user-icon"></i>
+          <p>User Fullname</p>
+          <i
+            class="bx bx-chevron-right bx-md"
+            style="color: #9b9da2"
+            id="close-menu"
+          ></i>
+        </div>
+        <a href="../index/">
+          <i class="bx bxs-dashboard bx-xs"></i>
+          <p>Dashboard</p>
+        </a>
+        <a href="../projects/">
+          <i class="bx bxs-folder bx-xs"></i>
+          <p>Projects</p>
+        </a>
+        <a href="#">
+          <i class="bx bxs-book-content bx-xs"></i>
+          <p>Tasks</p>
+        </a>
+        <a href="../sign-in/" id="sign-out">
+          <i class="bx bxs-exit" style="color: #ffffff"></i>
+          <p>Sign Out</p>
+        </a>
+      </nav>
+
+      <section class="contents">
+        <section class="project-details">
+          <div>
+            <p class="project-title">Project Title</p>
+            <p class="project-description">
+              Lorem i dsa dsa asd psum dolor sit amet consectetur adipisicing
+              elit. Beatae, assumenda
+            </p>
+            <div>
+              <label class="project-deadline" for="deadline-date"
+                >Deadline :</label
+              >
+              <input
+                id="deadline-date"
+                type="datetime-local"
+                class="deadline"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="action">
+            <i class="bx bxs-pencil bx-sm edit" data-role="edit"></i>
+            <i class="bx bx-plus bx-sm add-new" data-role="add"></i>
+          </div>
+        </section>
+
+        <section class="project-tasks">
+          <section class="to-do">
+            <div>
+              <p>To-do</p>
+              <i class="bx bxs-trash bx-sm deleteAll" data-role="delete"></i>
+            </div>
+            <div></div>
+          </section>
+
+          <section class="completed">
+            <div>
+              <p>Completed</p>
+              <i class="bx bxs-trash bx-sm deleteAll" data-role="delete"></i>
+            </div>
+            <div></div>
+          </section>
+        </section>
+      </section>
+    </article>
+
+    <!-- input -->
+    <section class="wrapper">
+      <p>New Task</p>
+      <section class="input">
+        <i class="bx bxs-exit bx-sm close"></i>
+        <label for="taskName">Task Name</label>
+        <input type="text" id="taskName" />
+        <button class="btn add">Add Task</button>
+      </section>
+    </section>
+
+    <!-- globals script -->
+    <script src="../globals.js"></script>
+    <!-- tasks script -->
+    <script type="module" src="task.js"></script>
+  </body>
+</html>

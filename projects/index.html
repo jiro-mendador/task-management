@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - Task Management</title>
+    <link
+      rel="stylesheet"
+      href="projects.css"
+      type="text/css"
+      charset="utf-8"
+    />
+    <!-- for icons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <article class="whole-page-container">
+      <header>
+        <i class="bx bx-menu bx-md" id="menu"></i>
+        <p class="page-title">Projects</p>
+      </header>
+
+      <nav>
+        <div class="user-fullname">
+          <i class="bx bxs-user-circle bx-lg user-icon"></i>
+          <p>User Fullname</p>
+          <i
+            class="bx bx-chevron-right bx-md"
+            style="color: #9b9da2"
+            id="close-menu"
+          ></i>
+        </div>
+        <a href="../index/">
+          <i class="bx bxs-dashboard bx-xs"></i>
+          <p>Dashboard</p>
+        </a>
+        <a href="#">
+          <i class="bx bxs-folder bx-xs"></i>
+          <p>Projects</p>
+        </a>
+        <a href="../sign-in/" id="sign-out">
+          <i class="bx bxs-exit" style="color: #ffffff"></i>
+          <p>Sign Out</p>
+        </a>
+      </nav>
+
+      <section class="contents">
+        <section class="projects-in-progress">
+          <div>
+            <p>In Progress</p>
+            <div>
+              <select
+                name="sortInProgress"
+                id="sortInProgress"
+                data-id="ip"
+                data-role="in-progress"
+              >
+                <option value="id">Sort By</option>
+                <option value="title">Title</option>
+                <option value="progress">Progress</option>
+                <option value="priority_level">Priority</option>
+                <option value="deadline">Deadline</option>
+                <option value="date_added">Date added</option>
+              </select>
+              <select
+                name="limitInProgress"
+                id="limitInProgress"
+                data-id="ip"
+                data-role="in-progress"
+              >
+                <option value="all">All</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+              </select>
+              <i
+                class="bx bxs-up-arrow bx-xs ipAscDesc"
+                data-id="ASC"
+                data-role="in-progress"
+              ></i>
+            </div>
+          </div>
+          <section class="projects-container">
+            <section class="add-project" data-role="Add">
+              <i class="bx bx-plus bx-lg add-task"></i>
+            </section>
+          </section>
+        </section>
+
+        <section class="projects-completed">
+          <div>
+            <p>Completed</p>
+            <div>
+              <select
+                name="sortCompleted"
+                id="sortCompleted"
+                data-id="cp"
+                data-role="completed"
+              >
+                <option value="id">Sort By</option>
+                <option value="title">Title</option>
+                <option value="priority_level">Priority</option>
+                <option value="deadline">Deadline</option>
+                <option value="date_added">Date added</option>
+                <option value="date_completed">Date completed</option>
+              </select>
+              <select
+                name="limitCompleted"
+                id="limitCompleted"
+                data-id="cp"
+                data-role="completed"
+              >
+                <option value="all">All</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+              </select>
+              <i
+                class="bx bxs-up-arrow bx-xs cpAscDesc"
+                data-id="ASC"
+                data-role="completed"
+              ></i>
+            </div>
+          </div>
+          <section class="projects-container"></section>
+        </section>
+      </section>
+    </article>
+
+    <!-- for user input -->
+    <section class="wrapper">
+      <p>Add New Project</p>
+      <section class="input">
+        <i class="bx bxs-exit bx-sm close"></i>
+        <label for="title">Title</label>
+        <input type="text" id="title" />
+        <label for="description">Description</label>
+        <input type="text" id="description" />
+        <label for="deadline-date">Deadline (Date | Time)</label>
+        <div>
+          <input type="date" id="deadline-date" />
+          <input type="time" id="deadline-time" />
+        </div>
+        <label for="priority-level">Priority Level</label>
+        <select name="priority-level" id="priority-level">
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+        <button class="btn add">Add</button>
+        <button class="btn delete">Delete</button>
+      </section>
+    </section>
+
+    <!-- globals scripts -->
+    <script src="../globals.js"></script>
+    <!-- projects script -->
+    <script src="projects.js" type="module"></script>
+  </body>
+</html>
+
+<!-- 
+  allow sorting in projects(in-progress/completed) based on 
+  ASC or DESC in 
+  1. Title 
+  2. Deadline
+  3. Progress
+  4. Deadline Passed or not
+  5. Maximum projects to load
+-->

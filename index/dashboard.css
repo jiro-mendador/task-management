@@ -1,0 +1,455 @@
+/*defaults*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+
+:root {
+  /* colors */
+  --darker: #464b5b;
+  --darkest--: #242b3e;
+  --dark: #9b9da2;
+
+  --light: #ffffff;
+  --lighter: #f1ebe3;
+  --lighest--: #f8f6f1;
+
+  --yellow-acc: #e2b356;
+  --violet-acc: #d7aeff;
+  --dark-violet-acc: #543ca6;
+  --orange-acc: #ee7c58;
+  --skin-acc: #f7e0d9;
+
+  /* font-sizes */
+  --title: 1.7em;
+  --sub-title: 1.4em;
+  --details: 0.9em;
+  --sub-details: 0.7em;
+
+  /* border-radius */
+  --semi: 15px;
+  --hard: 30px;
+}
+
+body {
+  /* background-color: var(--darkest--); */ /* ! test */
+  background: var(--darkest--); /* ! test */
+  background: linear-gradient(
+    90deg,
+    var(--darkest--) 0%,
+    var(--dark-violet-acc) 100%
+  ); /* ! test */
+  overflow: visible;
+}
+
+/* parent container */
+.whole-page-container {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 3em;
+  padding: 2em;
+}
+
+header,
+nav,
+nav a,
+nav div.user-fullname {
+  display: flex;
+  border-radius: var(--semi);
+  color: var(--lighest--);
+}
+
+/* header */
+header {
+  flex-flow: row wrap;
+  gap: 1em;
+  align-items: center;
+}
+
+header p.page-title {
+  font-size: var(--title);
+  font-weight: 600;
+}
+
+/* nav */
+nav a {
+  gap: 2em;
+  align-items: center;
+  text-decoration: none;
+  padding: 1em;
+}
+
+nav p {
+  font-weight: 100;
+  font-size: var(--details);
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  display: none;
+  flex-direction: column;
+  /* background-color: var(--darkest--); */ /*! test */
+  background-color: transparent; /*! test*/
+  padding: 1em;
+  gap: 1em;
+}
+
+/* for selected content */
+nav > *:nth-child(2) {
+  /* background-color: var(--darkest--); */
+  background-color: rgba(0, 0, 0, 0.1); /* ! test */
+  border-radius: var(--semi);
+}
+
+nav div.user-fullname {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+div.user-fullname > p {
+  font-weight: 600;
+}
+
+div.user-fullname > i:nth-child(1) {
+  color: var(--dark);
+}
+
+/* main content */
+section.contents,
+.contents > section {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+}
+
+/* to allow project contents to auto scroll  */
+section.contents {
+  overflow: hidden;
+}
+
+/* main content sections border and font color */
+section.task-graph,
+section.task-completed,
+section.projects-container,
+section.deadlines-container {
+  border-radius: var(--semi);
+  color: var(--darkest----);
+  padding: 1em;
+}
+
+/* no of task per day graph  */
+section.task-graph {
+  background-color: var(--skin-acc);
+  padding: 1em;
+}
+
+.task-graph p.task-graph-label {
+  font-size: var(--sub-title);
+  font-weight: 600;
+}
+
+.task-graph canvas {
+  max-height: 13em;
+}
+
+/* task completed container */
+section.task-completed {
+  background-color: var(--yellow-acc);
+  max-width: 100%;
+}
+
+.task-completed .task-completed-label {
+  font-weight: 600;
+  font-size: var(--sub-title);
+  margin-bottom: 1em;
+}
+
+.task-completed div.task-completed {
+  margin: 0 auto;
+
+  display: grid;
+  place-items: center;
+  width: 8em;
+  height: 8em;
+  word-wrap: break-word;
+
+  background-color: var(--dark-violet-acc);
+  border: 0.6em solid var(--lighter);
+  border-radius: 50%;
+}
+
+.task-completed > div p {
+  color: var(--lighest--);
+  font-size: var(--sub-title);
+}
+
+/* deadlines container */
+section.deadlines-container {
+  background-color: var(--violet-acc);
+}
+
+.deadlines-container p.deadlines-container-label {
+  font-weight: 600;
+  font-size: var(--sub-title);
+  margin-bottom: 1em;
+}
+
+.deadlines-container > div,
+section.deadline-task {
+  display: flex;
+  gap: 1em;
+}
+
+.deadlines-container > div {
+  flex-flow: column nowrap;
+  max-height: 15em;
+  overflow-y: auto;
+  padding: 0 1em 0 0;
+}
+
+/* individual deadlines */
+.task {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  white-space-collapse: collapse;
+}
+
+/* custom checkbox */
+.round-checkbox {
+  min-width: 14px;
+  min-height: 14px;
+  background-color: var(--light);
+  border-radius: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.round-checkbox:checked {
+  background-color: var(--darkest--);
+}
+
+.nothing {
+  color: var(--dark-violet-acc);
+  font-weight: 600;
+  font-size: var(--details);
+  margin: 1rem auto;
+}
+
+/* projects container */
+section.projects-container {
+  background-color: var(--lighter);
+}
+
+.projects-container p.projects-container-label {
+  font-size: var(--sub-title);
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+.projects-container > div {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1em;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 2em 0;
+  white-space: nowrap;
+}
+
+/* individual projects */
+section.project {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  border-radius: var(--semi);
+  min-width: 12em;
+  min-height: min-content;
+  white-space: wrap;
+  word-break: break-all;
+  background-color: var(--light);
+  padding: 1em 2.5em 1em 1em;
+  border: 3px solid transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+section.view-all-project {
+  position: relative;
+  min-width: 8em;
+  min-height: 8em;
+  border-radius: var(--semi);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--orange-acc);
+  gap: 1em;
+  padding: 1em;
+  border: 3px solid var(--light);
+  transition: all 0.3s ease-in-out;
+}
+
+.view-all-project > p {
+  color: var(--light);
+  font-size: var(--details);
+  font-weight: 600;
+}
+
+.view-all-project > i {
+  position: absolute;
+  top: 0.3em;
+  right: 0.3em;
+  transform: rotate(-30deg);
+  color: var(--darkest--);
+}
+
+section.project:hover,
+section.view-all-project:hover {
+  border-color: var(--orange-acc);
+  background-color: var(--dark-violet-acc);
+  color: var(--lighest--);
+}
+
+section p.project-title {
+  margin: 1em 0 0.5em 0;
+  font-size: var(--details);
+  font-weight: 600;
+}
+
+section p.project-progress-label {
+  font-size: var(--sub-details);
+  font-weight: 300;
+}
+
+section p.project-progress {
+  font-size: var(--sub-title);
+  font-weight: 600;
+}
+
+section p.project-priority-level {
+  position: absolute;
+  top: -1em;
+  left: 1em;
+
+  border-radius: var(--hard);
+  background-color: var(--orange-acc);
+  color: var(--lighest--);
+
+  font-size: var(--sub-details);
+  font-weight: 300;
+
+  padding: 0.5em 1em;
+}
+
+/* util class */
+.hide {
+  display: none;
+}
+
+.not-completed-in-time {
+  text-decoration: line-through;
+  color: var(--dark);
+}
+
+/* adjustments */
+/* tablets */
+@media screen and (min-width: 768px) {
+  .whole-page-container {
+    grid-template-columns: 300px auto;
+    grid-template-rows: auto auto;
+    gap: 3em 1em;
+    overflow: hidden;
+  }
+
+  section.task-graph,
+  section.task-completed,
+  section.projects-container,
+  section.deadlines-container {
+    padding: 3em;
+  }
+
+  header {
+    grid-area: 1/2/2/3;
+  }
+
+  header i:nth-child(1),
+  nav div.user-fullname > i:nth-of-type(2) {
+    display: none;
+  }
+
+  nav div.user-fullname {
+    justify-content: start;
+    gap: 1em;
+  }
+
+  nav {
+    position: relative;
+    display: flex;
+    grid-area: 2/1/3/2;
+  }
+
+  section.contents {
+    grid-area: 2/2/3/3;
+  }
+
+  .task-completed div.task-completed {
+    width: 10em;
+    height: 10em;
+  }
+}
+
+/* desktops */
+@media screen and (min-width: 1024px) {
+  .whole-page-container {
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+
+  /* 2 sections inside contents */
+  section.contents > section {
+    flex-direction: row;
+  }
+
+  /* project and deadlines */
+  section.projects-container {
+    flex: 4;
+    overflow-x: auto;
+  }
+
+  section.deadlines-container {
+    flex: 3;
+  }
+
+  /* graph and task completed */
+  section.task-completed {
+    flex: 2;
+  }
+
+  section.task-graph {
+    flex: 3;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 767px) {
+  nav {
+    background-color: var(--darkest--);
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="sign-in.css" />
+    <title>Task Management | Sign In</title>
+  </head>
+  <body>
+    <section class="contents">
+      <article class="inputs-labels">
+        <div class="titles">
+          <p>Welcome back</p>
+          <p>Please enter your details.</p>
+        </div>
+        <div class="inputs">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" />
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+            />
+            <div>
+              <label for="showPassword">Show Password</label>
+              <input type="checkbox" id="showPassword" class="round-checkbox" />
+            </div>
+          </div>
+          <button class="sign-in-btn">Sign In</button>
+          <div class="sign-up-parag">
+            <p>Don't have an account? <span id="sign-up-btn">Sign Up</span></p>
+          </div>
+        </div>
+      </article>
+    </section>
+    <script src="sign-in.js"></script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+{
+    "user": [
+        {
+            "id": 1,
+            "name": "Jiro Mendador",
+            "email": "jiromendador@gmail.com",
+            "projects": [
+                "Task Management",
+                "Deadline i2"
+            ],
+            "deadline": "2024-03-05",
+            "isEmailSent": true
+        },
+        {
+            "id": 2,
+            "name": "WHAT THE FUCK BRO",
+            "email": "orijrodadnem@gmail.com",
+            "projects": [
+                "Deadline Today",
+                "HOTDOG"
+            ],
+            "deadline": "2024-03-05",
+            "isEmailSent": true
+        },
+        {
+            "id": 2,
+            "name": "WHAT THE FUCK BRO",
+            "email": "orijrodadnem@gmail.com",
+            "projects": [
+                "dsadsa"
+            ],
+            "deadline": "2024-03-06",
+            "isEmailSent": true
+        },
+        {
+            "id": 2,
+            "name": "WHAT THE FUCK BRO",
+            "email": "orijrodadnem@gmail.com",
+            "projects": [
+                "dsadsa"
+            ],
+            "deadline": "2024-03-06",
+            "isEmailSent": true
+        },
+        {
+            "id": 2,
+            "name": "WHAT THE FUCK BRO",
+            "email": "orijrodadnem@gmail.com",
+            "projects": [
+                "dsadsa"
+            ],
+            "deadline": "2024-03-06",
+            "isEmailSent": true
+        },
+        {
+            "id": 2,
+            "name": "WHAT THE FUCK BRO",
+            "email": "orijrodadnem@gmail.com",
+            "projects": [
+                "dsadsa"
+            ],
+            "deadline": "2024-03-06",
+            "isEmailSent": true
+        },
+        {
+            "id": 2,
+            "name": "WHAT THE FUCK BRO",
+            "email": "orijrodadnem@gmail.com",
+            "projects": [
+                "dsadsa"
+            ],
+            "deadline": "2024-03-06",
+            "isEmailSent": true
+        }
+    ]
+}

@@ -1,0 +1,478 @@
+/*defaults*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+
+:root {
+  /* colors */
+  --darker: #464b5b;
+  --darkest--: #242b3e;
+  --dark: #9b9da2;
+
+  --light: #ffffff;
+  --lighter: #f1ebe3;
+  --lighest--: #f8f6f1;
+
+  --yellow-acc: #e2b356;
+  --violet-acc: #d7aeff;
+  --dark-violet-acc: #543ca6;
+  --orange-acc: #ee7c58;
+  --skin-acc: #f7e0d9;
+
+  /* font-sizes */
+  --title: 1.7em;
+  --sub-title: 1.4em;
+  --details: 0.9em;
+  --sub-details: 0.7em;
+
+  /* border-radius */
+  --semi: 15px;
+  --hard: 30px;
+}
+
+body {
+  /* background-color: var(--darkest--); */ /* ! test */
+  background: var(--darkest--); /* ! test */
+  background: linear-gradient(
+    90deg,
+    var(--darkest--) 0%,
+    var(--dark-violet-acc) 100%
+  ); /* ! test */
+  overflow: visible;
+}
+
+/* parent container */
+.whole-page-container {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 3em;
+  padding: 2em;
+}
+
+header,
+nav,
+nav a,
+nav div.user-fullname {
+  display: flex;
+  border-radius: var(--semi);
+  color: var(--lighest--);
+}
+
+/* header */
+header {
+  flex-flow: row wrap;
+  gap: 1em;
+  align-items: center;
+}
+
+header p.page-title {
+  font-size: var(--title);
+  font-weight: 600;
+}
+
+/* nav */
+nav a {
+  gap: 2em;
+  align-items: center;
+  text-decoration: none;
+  padding: 1em;
+}
+
+nav p {
+  font-weight: 100;
+  font-size: var(--details);
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  display: none;
+  flex-direction: column;
+  /* background-color: var(--darkest--); */ /* ! test */
+  background-color: transparent; /* ! test */
+  padding: 1em;
+  gap: 1em;
+}
+
+/* for selected content */
+nav > *:nth-child(3) {
+  /* background-color: var(--darker); */
+  background-color: rgba(0, 0, 0, 0.1); /* ! test */
+  border-radius: var(--semi);
+}
+
+nav div.user-fullname {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+div.user-fullname > p {
+  font-weight: 600;
+}
+
+div.user-fullname > i:nth-child(1) {
+  color: var(--dark);
+}
+
+/* main content */
+section.contents {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 300px 300px;
+  gap: 2.5em 0;
+  overflow: hidden;
+}
+
+/* 2 sections inside contents */
+.contents > section {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+}
+
+/* 2 sections labels */
+.contents > section > div > p {
+  font-size: var(--details);
+  font-weight: 600;
+  color: var(--lighest--);
+}
+
+/* div inside 2 sections in contents  */
+.contents > section > div,
+/* container of selects */
+.contents > section > div > div {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 1em;
+}
+
+/* sort */
+.contents > section > div select {
+  border: none;
+  outline: none;
+  border-radius: var(--semi);
+  padding: 0.25rem 0.5rem;
+  font-size: var(--sub-details);
+  background-color: var(--dark-violet-acc);
+  color: var(--light);
+}
+
+/* sort options */
+.contents > section > div select > option {
+  font-size: 14px;
+  outline: none;
+  text-decoration: none;
+}
+
+/* projects containers */
+section.projects-container {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.5em;
+
+  overflow-x: auto;
+  padding: 1em 2em;
+  align-items: center;
+}
+
+/* individual projects */
+section.project,
+section.add-project {
+  border-radius: var(--semi);
+  min-width: 10em;
+  max-width: 20em;
+  flex: 1;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+section.add-project {
+  display: grid;
+  place-items: center;
+  min-height: 8em;
+  border: 2px solid var(--dark-violet-acc);
+}
+
+.add-project > i {
+  color: var(--dark-violet-acc);
+}
+
+section.project {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  background-color: var(--light);
+  border: 3px solid transparent;
+  min-height: min-content;
+  word-break: break-word;
+  white-space: wrap;
+  padding: 1em 2.5em 1em 1em;
+}
+
+section.project:hover {
+  border-color: var(--orange-acc);
+  background-color: var(--dark-violet-acc);
+  color: var(--lighest--);
+}
+
+section.add-project:hover {
+  background-color: var(--orange-acc);
+}
+
+section p.project-title {
+  margin: 1em 0 0.5em 0;
+  font-size: var(--details);
+  font-weight: 600;
+}
+
+section p.project-progress-label {
+  font-size: var(--sub-details);
+  font-weight: 300;
+}
+
+section p.project-progress {
+  font-size: var(--sub-title);
+  font-weight: 600;
+}
+
+section p.project-priority-level {
+  position: absolute;
+  top: -1em;
+  left: 1em;
+
+  border-radius: var(--hard);
+  background-color: var(--orange-acc);
+  color: var(--lighest--);
+
+  font-size: var(--sub-details);
+  font-weight: 300;
+
+  padding: 0.5em 1em;
+}
+
+.edit {
+  position: absolute;
+  right: 1em;
+  color: var(--darkest--);
+}
+
+/* asc desc */
+.ipAscDesc,
+.cpAscDesc {
+  color: var(--dark);
+}
+
+/* user input */
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  display: none;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+
+  padding: 1em;
+  background-color: var(--darkest--);
+}
+
+.wrapper > p {
+  margin: 1.5em 0 0 0;
+  font-size: var(--title);
+  font-size: 600;
+  color: var(--light);
+}
+
+.input {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  max-width: 30em;
+  font-size: var(--details);
+  color: var(--light);
+  padding: 3em 1em;
+}
+
+/* deadline */
+.input div {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1em 0.5em;
+}
+
+.input > div > input {
+  min-width: 10em;
+  flex: 1;
+  margin: 0.5em 0 1em 0;
+  padding: 0.5em 1em;
+}
+
+.input > *:not(label):not(button):not(i):not(div) {
+  margin: 0.5em 0 1em 0;
+  padding: 0.5em 1em;
+}
+
+.btn,
+.input input,
+.input select {
+  border: none;
+  outline: none;
+  border-radius: var(--semi);
+}
+
+.btn {
+  margin: 0.5em 0;
+  padding: 0.5em;
+  color: var(--light);
+}
+
+.add {
+  background-color: var(--orange-acc);
+}
+
+.delete {
+  display: none;
+  background-color: var(--dark-violet-acc);
+}
+
+.close {
+  position: absolute;
+  top: 1em;
+  right: 0.5em;
+  color: var(--darker);
+}
+
+.not-completed-in-time {
+  text-decoration: line-through;
+  color: var(--dark);
+}
+
+/* adjustments */
+/* tablets */
+@media screen and (min-width: 768px) {
+  .whole-page-container {
+    grid-template-columns: 300px auto;
+    grid-template-rows: auto 1fr;
+    gap: 3em 1em;
+    height: 100%;
+  }
+
+  header {
+    grid-area: 1/2/2/3;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+
+  header i:nth-child(1),
+  nav div.user-fullname > i:nth-of-type(2) {
+    display: none;
+  }
+
+  nav div.user-fullname {
+    justify-content: start;
+    gap: 1em;
+  }
+
+  nav {
+    position: relative;
+    display: flex;
+    grid-area: 2/1/3/2;
+  }
+
+  section.contents {
+    grid-area: 2/2/3/3;
+    grid-template-rows: repeat(2, auto);
+  }
+
+  section.contents > section {
+    max-height: 1fr;
+    overflow: auto;
+  }
+
+  section.projects-in-progress {
+    grid-area: 1/1/2/2;
+  }
+
+  section.projects-completed {
+    grid-area: 2/1/3/2;
+  }
+
+  section.projects-container {
+    flex-flow: row wrap;
+    align-items: stretch;
+  }
+}
+
+/* desktops */
+@media screen and (min-width: 1024px) {
+  .whole-page-container {
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+
+  .wrapper {
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 767px) {
+  nav {
+    background-color: var(--darkest--);
+  }
+}
+
+/* for testing purposes only */
+.hide {
+  display: none;
+}
+
+/* 
+TODO : responsivenessssssssssss!!!!!!!!!!
+TODO: projects and tasks layout
+
+
+LOGIC FOR PROJ AND TASKS NOTE :
+The project is the one who has a deadline
+then all tasks inside that project has status like completed, ongoing etc.
+which determines the percentage of the project
+
+then the deadlines in the dashboard will get all projects tasks where
+if the due date is today and where the status is still ongoing
+
+NOTE : 
+for better project file strutcture
+use includes for the same nav and header
+make 1 page per main functions (dashboard, proj, task. acc)
+and 1 css file per main functions
+and 1 js file per main functions
+convert html files into php
+
+
+*/

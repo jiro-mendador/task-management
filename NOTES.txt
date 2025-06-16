@@ -1,0 +1,21 @@
+NOTE WHEN SENDING DEADLINE NOTIF FOR THE USER : 
+1. Gather projects info expiring in the current day.
+2. Then send the all-in-one deadline notif for all projects.
+3. If sending an email succeeds add the user data in json to flag as isEmailSent : true
+4. Then a loop to check for some failed emails then send again.
+
+NOTE : 
+  Worker script for email sending is triggered using the dashboard page (user interaction dependent). 
+  Depending on the webhost it should be triggered once per day 
+    as script outside the site to be independent from user accessing the page
+
+NOTE : 
+- For scenarios when a user edited a project's deadline 
+  or add another project with the deadline set to 
+  current day but the web app already sent an email for that day 
+  then the web app will just ignore it
+
+for hosting php project without dashboard
+https://tiiny.host/manage
+
+NOTE: DUE TO FREE MYSQL DATABASE HOSTING CONFLICTS THE PROJECT'S DB WAS MIGRATED TO POSTGRESQL

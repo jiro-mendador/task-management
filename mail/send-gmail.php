@@ -2,6 +2,8 @@
 // ! for error checking
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+// workaround without composer to access .env file
+$env = parse_ini_file('../.env');
 
 include_once("../config.php");
 header('Content-Type: application/json');
@@ -147,8 +149,8 @@ class Email
       $mail->isSMTP(); // Set mailer to use SMTP
       $mail->Host = 'smtp.gmail.com'; // Specify main and backup SMTP servers
       $mail->SMTPAuth = true; // Enable SMTP authentication
-      $mail->Username = '20210548m.mendador.jiro.bscs@gmail.com'; // SMTP username
-      $mail->Password = 'rdga hhyh vdto tohh'; // SMTP password
+      $mail->Username = $env['GMAIL_EMAIL']; // SMTP username
+      $mail->Password = $env['GMAIL_APP_KEY']; // SMTP password
       $mail->SMTPSecure = 'tls'; // Enable TLS encryption, `ssl` also accepted
       $mail->Port = 587; // TCP port to connect to
 

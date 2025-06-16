@@ -3,7 +3,7 @@
 $env = parse_ini_file('.env');
 
 // configs for PostgreSQL
-$host = $env['DB_HOST_NAME'];
+$host = gethostbyname($env['DB_HOST_NAME']);
 $port = $env['DB_PORT'];
 $dbName = $env['DB_DATABASE_NAME'];
 $uName = $env['DB_USERNAME'];

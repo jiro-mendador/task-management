@@ -3,7 +3,7 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 // workaround without composer to access .env file
-$env = parse_ini_file('../.env');
+$env = parse_ini_file(__DIR__ . '/../.env');
 
 include_once("../config.php");
 header('Content-Type: application/json');

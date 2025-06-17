@@ -48,7 +48,7 @@ window.onload = () => {
   }
 
   const signInBtn = elem("#sign-in-btn");
-  signInBtn.onclick = () => (location.href = "../sign-in/");
+  signInBtn.onclick = () => (location.href = "../sign-in/index.html");
 
   const signUpBtn = elem(".sign-up-btn");
   signUpBtn.addEventListener("click", signUp);

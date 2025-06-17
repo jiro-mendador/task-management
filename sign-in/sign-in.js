@@ -32,7 +32,7 @@ window.onload = () => {
   }
 
   const signUpBtn = elem("#sign-up-btn");
-  signUpBtn.onclick = () => (location.href = "../sign-up/");
+  signUpBtn.onclick = () => (location.href = "../sign-up/index.html");
 
   const signInBtn = elem(".sign-in-btn");
   signInBtn.addEventListener("click", signIn);
@@ -61,7 +61,7 @@ window.onload = () => {
 
     if (res.res === "Success") {
       localStorage.setItem("tm-user-id", res.id);
-      location.href = "../index/";
+      location.href = "../index/index.html";
       return;
     }
 

@@ -95,7 +95,7 @@ async function worker() {
   // ! an exception occur here when it runs again which returns a null
   const check_email_res = await checkEmail();
   const get_email_res = await getEmail();
-
+  
   populateUsersArray(get_email_res, users);
 
   console.log("check_email_res", check_email_res);

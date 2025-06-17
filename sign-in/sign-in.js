@@ -5,7 +5,7 @@ window.onload = () => {
 
   // * check if user is signed in
   if (localStorage.getItem("tm-user-id") !== null) {
-    location.href = "../index/";
+    location.href = "../index/index.html";
   }
 
   function ajax_request(method, url, dbObject) {
